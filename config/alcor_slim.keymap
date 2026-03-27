@@ -2,12 +2,21 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
+    combos { compatible = "zmk,combos"; };
 
-        Enter_boot {
-            bindings = <&bootloader>;
-            key-positions = <21 40>;
+    macros {
+        colcol: colcol {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp COLON>;
+            label = "COLCOL";
+        };
+
+        back_dir: back_dir {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp DOT &kp FSLH>;
+            label = "BACK_DIR";
         };
     };
 
@@ -16,32 +25,48 @@
 
         default_layer {
             bindings = <
-&kp TAB     &kp Q  &kp W     &kp F    &kp P  &kp B      &kp MINUS                                    &kp EQUAL             &kp J      &kp L  &kp U      &kp Y     &kp SEMI  &kp BSPC
-&kp ESC     &kp A  &kp R     &kp S    &kp T  &kp G      &kp PRINTSCREEN                              &none                 &kp M      &kp N  &kp E      &kp I     &kp O     &kp RETURN
-&kp LSHIFT  &kp Z  &kp X     &kp C    &kp D  &kp V                                                                         &kp K      &kp H  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHIFT
-                   &kp LGUI  &kp DEL                    &mo 1            &kp LCTRL    &none          &mo 1                                   &kp CAPS   &kp RGUI
-                                             &kp ENTER  &mt LSHFT SPACE  &kp LALT     &kp BACKSPACE  &mt LEFT_SHIFT SPACE  &kp ENTER
+&kp TAB     &kp Q  &kp W     &kp F    &kp P  &kp B                 &kp MINUS                                   &kp EQUAL  &kp J            &kp L  &kp U      &kp Y     &kp SEMI  &kp BSPC
+&kp ESC     &kp A  &kp R     &kp S    &kp T  &kp G                 &kp PRINTSCREEN                             &none      &kp M            &kp N  &kp E      &kp I     &kp O     &kp RETURN
+&kp LSHIFT  &kp Z  &kp X     &kp C    &kp D  &kp V                                                                        &kp K            &kp H  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHIFT
+                   &kp LGUI  &kp DEL                               &mo 1            &mo 2       &mo 2          &mo 1                              &kp CAPS   &kp RGUI
+                                             &mt LEFT_SHIFT SPACE  &kp ENTER        &kp LALT    &kp BACKSPACE  &kp ENTER  &mt RSHFT SPACE
             >;
         };
 
         numpad {
             bindings = <
-&trans  &kp PAUSE_BREAK  &kp END   &kp UP    &kp HOME   &kp PG_UP      &trans                    &trans  &kp KP_NUMLOCK   &kp KP_N7  &kp KP_N8        &kp KP_N9   &kp KP_PLUS   &trans
-&trans  &trans           &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN  &trans                    &trans  &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5        &kp KP_N6   &kp KP_MINUS  &trans
-&trans  &trans           &trans    &trans    &trans     &trans                                           &kp KP_SLASH     &kp KP_N1  &kp KP_N2        &kp KP_N3   &kp KP_ENTER  &trans
-                         &trans    &trans                              &trans  &trans    &trans  &trans                              &kp KP_NUMBER_0  &kp KP_DOT
-                                                        &trans         &trans  &trans    &trans  &trans  &trans
+&trans  &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp PAUSE_BREAK  &trans                    &trans  &kp KP_NUMLOCK   &kp KP_N7  &kp KP_N8        &kp KP_N9   &kp KP_PLUS   &kp KP_EQUAL
+&trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none            &trans                    &trans  &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5        &kp KP_N6   &kp KP_MINUS  &kp KP_COMMA
+&trans  &none      &none     &none     &none      &none                                              &kp KP_SLASH     &kp KP_N1  &kp KP_N2        &kp KP_N3   &kp KP_ENTER  &trans
+                   &trans    &trans                                &trans  &trans    &trans  &trans                              &kp KP_NUMBER_0  &kp KP_DOT
+                                                  &trans           &trans  &trans    &trans  &trans  &trans
             >;
+
+            label = "num";
         };
 
-        layer_2 {
+        symbol {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans                  &trans  &trans    &trans  &trans                  &trans  &trans
+&trans  &kp SINGLE_QUOTE  &kp LESS_THAN  &kp GREATER_THAN  &kp DOUBLE_QUOTES  &kp DOT    &trans                    &trans  &kp AMPERSAND  &colcol     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PERCENT   &trans
+&trans  &kp EXCL          &kp MINUS      &kp PLUS          &kp EQUAL          &kp HASH   &trans                    &trans  &kp PIPE       &kp COLON   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION  &trans
+&trans  &kp CARET         &kp SLASH      &kp ASTRK         &kp BACKSLASH      &back_dir                                    &kp TILDE      &kp DOLLAR  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT        &trans
+                          &trans         &trans                                          &trans  &trans    &trans  &trans                             &trans                &trans
+                                                                              &trans     &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "sym";
+        };
+
+        fn {
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &trans                    &trans  &kp N6  &kp N7  &kp N8   &kp N9   &kp N0   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                    &trans  &trans  &trans   &trans   &trans   &trans
+                &trans  &trans                  &trans  &trans    &trans  &trans                  &trans   &trans
                                         &trans  &trans  &trans    &trans  &trans  &trans
             >;
+
+            label = "fn";
         };
     };
 };
