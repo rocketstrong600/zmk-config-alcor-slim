@@ -2,6 +2,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        Enter_boot {
+            bindings = <&bootloader>;
+            key-positions = <21 40>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
