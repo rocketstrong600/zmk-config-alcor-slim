@@ -31,6 +31,8 @@
                    &kp LGUI  &kp DEL                               &mo 1            &mo 2       &mo 2          &mo 1                              &kp CAPS   &kp RGUI
                                              &mt LEFT_SHIFT SPACE  &kp ENTER        &kp LALT    &kp BACKSPACE  &kp ENTER  &mt RSHFT SPACE
             >;
+
+            label = "main";
         };
 
         numpad {
