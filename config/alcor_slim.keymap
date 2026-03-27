@@ -3,7 +3,14 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        tog {
+            bindings = <&tog 1>;
+            key-positions = <49 52>;
+        };
+    };
 
     macros {
         colcol: colcol {
@@ -50,11 +57,11 @@
 
         symbol {
             bindings = <
-&trans  &kp SINGLE_QUOTE  &kp LESS_THAN  &kp GREATER_THAN  &kp DOUBLE_QUOTES  &kp DOT    &trans                    &trans  &kp AMPERSAND  &colcol     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PERCENT   &trans
-&trans  &kp EXCL          &kp MINUS      &kp PLUS          &kp EQUAL          &kp HASH   &trans                    &trans  &kp PIPE       &kp COLON   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION  &trans
-&trans  &kp CARET         &kp SLASH      &kp ASTRK         &kp BACKSLASH      &back_dir                                    &kp TILDE      &kp DOLLAR  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT        &trans
-                          &trans         &trans                                          &trans  &trans    &trans  &trans                             &trans                &trans
-                                                                              &trans     &trans  &trans    &trans  &trans  &trans
+&kp GRAVE  &kp SINGLE_QUOTE  &kp LESS_THAN  &kp GREATER_THAN  &kp DOUBLE_QUOTES  &kp DOT    &trans                    &trans  &kp AMPERSAND  &colcol     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PERCENT   &trans
+&trans     &kp EXCL          &kp MINUS      &kp PLUS          &kp EQUAL          &kp HASH   &trans                    &trans  &kp PIPE       &kp COLON   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION  &trans
+&trans     &kp CARET         &kp SLASH      &kp ASTRK         &kp BACKSLASH      &back_dir                                    &kp TILDE      &kp DOLLAR  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT        &trans
+                             &trans         &trans                                          &trans  &trans    &trans  &trans                             &trans                &trans
+                                                                                 &trans     &trans  &trans    &trans  &trans  &trans
             >;
 
             label = "sym";
