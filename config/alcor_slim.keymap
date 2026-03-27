@@ -26,6 +26,43 @@
             bindings = <&kp DOT &kp DOT &kp FSLH>;
             label = "BACK_DIR";
         };
+
+        disconnect: disconnect {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4>;
+            label = "DISCONNECT";
+        };
+    };
+
+    behaviors {
+        hr_mod_l: hr_mod_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_MOD_L";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <175>;
+            tapping-term-ms = <280>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <39 27 13 12 26 38 47 37 25 11 10 46 36 24 35 23 9 8 22 34 21 7 53 52 51 44 45>;
+        };
+
+        hr_mod_r: hr_mod_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_MOD_R";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <175>;
+            tapping-term-ms = <280>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 28 14 29 15 1 2 16 40 30 41 31 17 3 4 18 32 33 19 5 6 20 48 49 42 43 50>;
+        };
     };
 
     keymap {
@@ -33,11 +70,11 @@
 
         default_layer {
             bindings = <
-&kp TAB     &kp Q  &kp W     &kp F    &kp P  &kp B                 &kp MINUS                                    &kp EQUAL    &kp J            &kp L  &kp U      &kp Y     &kp SEMI  &kp BSPC
-&kp ESC     &kp A  &kp R     &kp S    &kp T  &kp G                 &kp PRINTSCREEN                              &none        &kp M            &kp N  &kp E      &kp I     &kp O     &kp LCTRL
-&kp LSHIFT  &kp Z  &kp X     &kp C    &kp D  &kp V                                                                           &kp K            &kp H  &kp COMMA  &kp DOT   &kp FSLH  &kp LALT
-                   &kp LGUI  &kp DEL                               &mo 3            &kp RSHFT    &mo 2          &mo 3                                &kp CAPS   &kp RGUI
-                                             &mt LEFT_SHIFT SPACE  &lt 1 ENTER      &lt 2 TAB    &kp BACKSPACE  &lt 1 ENTER  &mt RSHFT SPACE
+&kp TAB     &kp Q                 &kp W                 &kp F              &kp P                   &kp B                 &kp MINUS                                    &kp EQUAL    &kp J            &kp L              &kp U              &kp Y                  &kp SEMI               &kp BSPC
+&kp ESC     &hr_mod_l LEFT_GUI A  &hr_mod_l LEFT_ALT R  &hr_mod_l LCTRL S  &hr_mod_l LEFT_SHIFT T  &kp G                 &kp PRINTSCREEN                              &none        &kp M            &hr_mod_r RSHFT N  &hr_mod_r RCTRL E  &hr_mod_r RIGHT_ALT I  &hr_mod_r RIGHT_GUI O  &kp LCTRL
+&kp LSHIFT  &kp Z                 &kp X                 &kp C              &kp D                   &kp V                                                                           &kp K            &kp H              &kp COMMA          &kp DOT                &kp FSLH               &kp LALT
+                                  &kp LGUI              &kp DEL                                                          &mo 3            &kp RSHFT    &mo 2          &mo 3                                            &kp CAPS           &kp RGUI
+                                                                                                   &mt LEFT_SHIFT SPACE  &lt 1 ENTER      &lt 2 TAB    &kp BACKSPACE  &lt 1 ENTER  &mt RSHFT SPACE
             >;
 
             label = "main";
@@ -45,11 +82,11 @@
 
         numpad {
             bindings = <
-&trans  &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp PAUSE_BREAK  &bt BT_NXT                    &bt BT_CLR  &kp KP_NUMLOCK   &kp KP_N7  &kp KP_N8        &kp KP_N9   &kp KP_PLUS   &kp KP_EQUAL
-&trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none            &bt BT_PRV                    &trans      &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5        &kp KP_N6   &kp KP_MINUS  &kp KP_COMMA
-&trans  &none      &none     &none     &none      &none                                                      &kp KP_SLASH     &kp KP_N1  &kp KP_N2        &kp KP_N3   &kp KP_ENTER  &trans
-                   &trans    &trans                                &trans      &trans    &trans  &trans                                  &kp KP_NUMBER_0  &kp KP_DOT
-                                                  &trans           &trans      &trans    &trans  &trans      &trans
+&trans  &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp PAUSE_BREAK  &bt BT_NXT                    &bt BT_CLR   &kp KP_NUMLOCK   &kp KP_N7  &kp KP_N8        &kp KP_N9   &kp KP_PLUS   &kp KP_EQUAL
+&trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none            &bt BT_PRV                    &disconnect  &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5        &kp KP_N6   &kp KP_MINUS  &kp KP_COMMA
+&trans  &none      &none     &none     &none      &none                                                       &kp KP_SLASH     &kp KP_N1  &kp KP_N2        &kp KP_N3   &kp KP_ENTER  &trans
+                   &trans    &trans                                &trans      &trans    &trans  &trans                                   &kp KP_NUMBER_0  &kp KP_DOT
+                                                  &trans           &trans      &trans    &trans  &trans       &trans
             >;
 
             label = "num";
