@@ -15,6 +15,11 @@
             bindings = <&tog 1>;
             key-positions = <48 53>;
         };
+
+        game {
+            bindings = <&tog 4>;
+            key-positions = <0 13>;
+        };
     };
 
     macros {
@@ -121,14 +126,28 @@
             label = "fn";
         };
 
-        layer_4 {
+        gaming {
             bindings = <
-&kp TAB    &kp R  &kp Q   &kp W   &kp E  &kp T      &kp LBKT                         &kp RBKT   &kp Y      &kp U  &kp I      &kp O    &kp P     &kp MINUS
-&kp ESC    &kp F  &kp A   &kp S   &kp D  &kp G      &trans                           &trans     &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp APOS
-&kp LSHFT  &kp V  &kp Z   &kp X   &kp C  &kp B                                                  &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                  &trans  &trans                    &trans     &trans      &trans    &trans                       &trans     &trans
-                                         &kp LCTRL  &kp SPACE  &kp LALT    &kp RALT  &kp SPACE  &kp RCTRL
+&kp TAB    &kp R  &kp Q     &kp W      &kp E  &kp T      &kp LBKT                           &kp EQUAL  &kp Y      &kp U  &kp I      &kp O     &kp P     &kp MINUS
+&kp ESC    &kp F  &kp A     &kp S      &kp D  &kp G      &kp RBKT                           &kp MINUS  &kp H      &kp J  &kp K      &kp L     &kp SEMI  &kp APOS
+&kp LSHFT  &kp V  &kp Z     &kp X      &kp C  &kp B                                                    &kp N      &kp M  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                  &kp LALT  &kp ENTER                    &mo 5      &kp CAPS     &kp F5     &kp F3                       &trans     &kp RALT
+                                              &kp LCTRL  &kp SPACE  &kp LSHFT    &kp RSHFT  &kp SPACE  &kp RCTRL
             >;
+
+            label = "Game";
+        };
+
+        game_two {
+            bindings = <
+&kp GRAVE  &kp H   &kp N7  &kp N8  &kp N9  &kp M   &kp P                     &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans     &kp Y   &kp N4  &kp N5  &kp N6  &kp N   &kp L                     &trans  &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans     &trans  &kp N1  &kp N2  &kp N3  &kp I                                     &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans
+                   &trans  &kp N0                  &trans  &trans    &trans  &trans                  &trans   &trans
+                                           &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "Game E";
         };
     };
 };
