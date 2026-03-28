@@ -6,9 +6,14 @@
     combos {
         compatible = "zmk,combos";
 
-        tog {
-            bindings = <&tog 1>;
+        tog_sym {
+            bindings = <&tog 2>;
             key-positions = <49 52>;
+        };
+
+        tog_num {
+            bindings = <&tog 1>;
+            key-positions = <48 53>;
         };
     };
 
@@ -70,11 +75,11 @@
 
         default_layer {
             bindings = <
-&kp TAB     &kp Q                 &kp W                 &kp F              &kp P                   &kp B                 &kp MINUS                                    &kp EQUAL    &kp J            &kp L              &kp U              &kp Y                  &kp SEMI               &kp BSPC
-&kp ESC     &hr_mod_l LEFT_GUI A  &hr_mod_l LEFT_ALT R  &hr_mod_l LCTRL S  &hr_mod_l LEFT_SHIFT T  &kp G                 &kp PRINTSCREEN                              &none        &kp M            &hr_mod_r RSHFT N  &hr_mod_r RCTRL E  &hr_mod_r RIGHT_ALT I  &hr_mod_r RIGHT_GUI O  &kp LCTRL
-&kp LSHIFT  &kp Z                 &kp X                 &kp C              &kp D                   &kp V                                                                           &kp K            &kp H              &kp COMMA          &kp DOT                &kp FSLH               &kp LALT
-                                  &kp LGUI              &kp DEL                                                          &mo 3            &kp RSHFT    &mo 2          &mo 3                                            &kp CAPS           &kp RGUI
-                                                                                                   &mt LEFT_SHIFT SPACE  &lt 1 ENTER      &lt 2 TAB    &kp BACKSPACE  &lt 1 ENTER  &mt RSHFT SPACE
+&kp TAB    &kp Q                 &kp W                 &kp F              &kp P                   &kp B        &kp MINUS                                         &kp EQUAL              &kp J        &kp L              &kp U              &kp Y                  &kp SEMI               &kp SINGLE_QUOTE
+&kp ESC    &hr_mod_l LEFT_GUI A  &hr_mod_l LEFT_ALT R  &hr_mod_l LCTRL S  &hr_mod_l LEFT_SHIFT T  &kp G        &kp LEFT_PARENTHESIS                              &kp RIGHT_PARENTHESIS  &kp M        &hr_mod_r RSHFT N  &hr_mod_r RCTRL E  &hr_mod_r RIGHT_ALT I  &hr_mod_r RIGHT_GUI O  &kp BACKSLASH
+&kp GRAVE  &kp Z                 &kp X                 &kp C              &kp D                   &kp V                                                                                 &kp K        &kp H              &kp COMMA          &kp DOT                &kp FSLH               &kp LALT
+                                 &kp LGUI              &kp PRINTSCREEN                                         &mo 3                 &kp LSHFT    &kp RSHFT      &mo 3                                                  &kp CAPS           &kp RGUI
+                                                                                                  &lt 1 ENTER  &lt 2 SPACE           &kp DEL      &kp BACKSPACE  &lt 2 SPACE            &lt 1 ENTER
             >;
 
             label = "main";
