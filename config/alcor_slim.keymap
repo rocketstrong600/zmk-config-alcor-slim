@@ -80,8 +80,8 @@
 
         default_layer {
             bindings = <
-&kp TAB    &kp Q                 &kp W                 &kp F              &kp P                   &kp B        &kp MINUS                                         &kp EQUAL              &kp J        &kp L              &kp U              &kp Y                  &kp SEMI               &kp SINGLE_QUOTE
-&kp ESC    &hr_mod_l LEFT_GUI A  &hr_mod_l LEFT_ALT R  &hr_mod_l LCTRL S  &hr_mod_l LEFT_SHIFT T  &kp G        &kp LEFT_PARENTHESIS                              &kp RIGHT_PARENTHESIS  &kp M        &hr_mod_r RSHFT N  &hr_mod_r RCTRL E  &hr_mod_r RIGHT_ALT I  &hr_mod_r RIGHT_GUI O  &kp BACKSLASH
+&kp TAB    &kp Q                 &kp W                 &kp F              &kp P                   &kp B        &kp MINUS                                         &kp EQUAL              &kp J        &kp L              &kp U              &kp Y                  &kp SEMI               &kp BSLH
+&kp ESC    &hr_mod_l LEFT_GUI A  &hr_mod_l LEFT_ALT R  &hr_mod_l LCTRL S  &hr_mod_l LEFT_SHIFT T  &kp G        &kp LEFT_PARENTHESIS                              &kp RIGHT_PARENTHESIS  &kp M        &hr_mod_r RSHFT N  &hr_mod_r RCTRL E  &hr_mod_r RIGHT_ALT I  &hr_mod_r RIGHT_GUI O  &kp SQT
 &kp GRAVE  &kp Z                 &kp X                 &kp C              &kp D                   &kp V                                                                                 &kp K        &kp H              &kp COMMA          &kp DOT                &kp FSLH               &kp LALT
                                  &kp LGUI              &kp PRINTSCREEN                                         &mo 3                 &kp LSHFT    &kp RSHFT      &mo 3                                                  &kp CAPS           &kp RGUI
                                                                                                   &lt 1 ENTER  &lt 2 SPACE           &kp DEL      &kp BACKSPACE  &lt 2 SPACE            &lt 1 ENTER
